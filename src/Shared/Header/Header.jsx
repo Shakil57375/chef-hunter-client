@@ -7,13 +7,13 @@ import ActiveLink from "../../ActiveLink/ActiveLink";
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-gray-700 ">
-      <div className="text-3xl font-bold cursor-pointer">
+    <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-blue-950">
+      <div className="text-2xl lg:text-3xl order-2 lg:order-1 font-bold cursor-pointer">
         <Link to="/" className="sm:m-0 sm:p-0 text-white">
-          Chef Master
+            Recipe Expedition
         </Link>
       </div>
-      <div className="flex justify-between items-center flex-row-reverse lg:flex-row">
+      <div className="flex justify-between order-1 lg:order-2 items-center flex-row-reverse lg:flex-row">
         <div>
           <div className="md:hidden" onClick={() => setOpen(!open)}>
             <span>
@@ -27,7 +27,7 @@ const Header = () => {
           <div
             className={`links flex text-white absolute lg:static duration-500 lg:flex-row flex-col justify-center text-lg ${
               open
-                ? "block right-0 top-16 -ml-16 z-20 lg:bg-inherit bg-black lg:text-black text-white py-5 gap-2 pl-10"
+                ? "block left-16 top-16 -ml-16 z-20 lg:bg-inherit bg-red-100 w-full lg:text-black text-black shadow-2xl py-5 gap-2 pl-10"
                 : "hidden lg:block"
             } `}
           >
@@ -46,6 +46,9 @@ const Header = () => {
               </div>
             } */}
         </div>
+      </div>
+      <div className="order-3 lg:order-3">
+        <div className="btn btn-primary text-white">test</div>
       </div>
     </div>
   );
