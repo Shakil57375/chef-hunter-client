@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import "./Header.css";
 import ActiveLink from "../../ActiveLink/ActiveLink";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Header = () => {
+  const {user} = useContext(AuthContext)
+  console.log(user);
   const [open, setOpen] = useState(false);
   return (
     <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-blue-950">
