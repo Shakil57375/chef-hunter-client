@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { registerUser, goggleSignUp, githubSignUp } = useContext(AuthContext);
+  const { registerUser, goggleRegister, githubRegister } = useContext(AuthContext);
   // console.log(githubSignUp);
   // console.log(registerUser);
   const [success, setSuccess] = useState("");
@@ -36,7 +36,7 @@ const Register = () => {
     }
   };
   const handleGoogleLogin = () => {
-    goggleSignUp()
+    goggleRegister()
     .then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -48,7 +48,7 @@ const Register = () => {
     });
   };
   const handleGithubLogin = () => {
-    githubSignUp()
+    githubRegister()
     .then(result =>{
       const loggedUser = result.user;
       console.log(loggedUser);
@@ -64,7 +64,7 @@ const Register = () => {
       <div className="hero min-h-screen lg:mt-24 mt-[4.2rem] bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center">
-            <h1 className="text-5xl font-bold">Sign Up!</h1>
+            <h1 className="text-5xl font-bold">Register</h1>
           </div>
           <div className="card flex-shrink-0 lg:w-[450px] sm:w-full shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit} className="card-body w-full">
@@ -123,7 +123,7 @@ const Register = () => {
                 </a>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Sign up</button>
+                <button className="btn btn-primary">Register</button>
               </div>
 
               <p className="my-2 text-center text-2xl font-semibold border-b-2 border-slate-400 bg-opacity-10">

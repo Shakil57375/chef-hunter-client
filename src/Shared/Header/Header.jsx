@@ -6,14 +6,23 @@ import "./Header.css";
 import ActiveLink from "../../ActiveLink/ActiveLink";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Header = () => {
-  const {user} = useContext(AuthContext)
+  const {user, logOut} = useContext(AuthContext)
   console.log(user);
+  const handleLogOut = () =>{
+    logOut()
+    .then((result) =>{
+      console.log(result);
+    })
+    .catch((error)=>{
+      console.log(error.message);
+    })
+  }
   const [open, setOpen] = useState(false);
   return (
     <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-blue-950">
       <div className="text-2xl lg:text-3xl order-2 lg:order-1 font-bold cursor-pointer">
         <Link to="/" className="sm:m-0 sm:p-0 text-white">
-            Recipe Expedition
+            Recipe hunter
         </Link>
       </div>
       <div className="flex justify-between order-1 lg:order-2 items-center flex-row-reverse lg:flex-row">
@@ -41,17 +50,17 @@ const Header = () => {
           </div>
         </div>
         <div>
-          {/* {
-              user && 
-              <div className="flex gap-4">
-                <button className="text-white" onClick={handleLogOut}>Sign Out</button>
-                <span className='text-white mr-3'> <img src={user.photoURL} width={50} height={50} className="rounded-full" alt="" /></span>
-              </div>
-            } */}
+
         </div>
       </div>
       <div className="order-3 lg:order-3">
-        <div className="btn btn-primary text-white">test</div>
+      {
+              user && 
+              <div className="flex gap-2 cursor-pointer">
+                <button className="text-white" onClick={handleLogOut}>Sign Out</button>
+                <span className='text-white mr-0 lg:mr-3 '> <img src={user.photoURL} title = {user.displayName ? user.displayName : " "} width={50} height={50} className="rounded-full" alt="" /></span>
+              </div>
+      }
       </div>
     </div>
   );

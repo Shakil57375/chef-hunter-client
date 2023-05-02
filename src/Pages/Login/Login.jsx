@@ -6,7 +6,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const { loginUser, goggleSignUp, githubSignUp } = useContext(AuthContext);
+  const { loginUser, goggleRegister, githubRegister } = useContext(AuthContext);
   const handleSubmit = (event) => {
     setError("")
     setSuccess("")
@@ -31,7 +31,7 @@ const Login = () => {
     }
   };
   const handleGoogleLogin = () => {
-    goggleSignUp()
+    goggleRegister()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
@@ -43,7 +43,7 @@ const Login = () => {
       });
   };
   const handleGithubLogin = () => {
-    githubSignUp()
+    githubRegister()
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
