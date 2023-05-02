@@ -1,11 +1,59 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
-    const handleSubmit = (event) =>{
-        event.preventDefault()
-    } 
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+  const { loginUser, goggleSignUp, githubSignUp } = useContext(AuthContext);
+  const handleSubmit = (event) => {
+    setError("")
+    setSuccess("")
+    event.preventDefault();
+    const from = event.target;
+    const email = from.email.value;
+    const password = from.password.value;
+    if (password.length < 6) {
+      setError("Please add more then 6 character");
+      return;
+    }
+    if ((email, password)) {
+      loginUser(email, password)
+        .then((result) => {
+          console.log(result);
+          setSuccess("User successfully loggedIn");
+        })
+        .catch((error) => {
+          console.log(error.message);
+          setError(error.message);
+        });
+    }
+  };
+  const handleGoogleLogin = () => {
+    goggleSignUp()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setSuccess("User Sign up successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubSignUp()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setSuccess("User Sign up successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen lg:mt-24 mt-[4.2rem] bg-base-200">
@@ -39,9 +87,11 @@ const Login = () => {
                   required
                 />
               </div>
+              <p className="text-red-700">{error}</p>
+              <p className="text-green-600">{success}</p>
               <div>
                 <a href="#" className="label-text-alt link link-hover">
-                  New to my shop? Please{' '}
+                  New to my shop? Please{" "}
                   <Link className="text-blue-600" to="/register">
                     Register
                   </Link>
@@ -57,7 +107,7 @@ const Login = () => {
 
                 <div className="mb-3">
                   <img
-                    
+                    onClick={handleGoogleLogin}
                     className=" social-button cursor-pointer"
                     src="https://i.ibb.co/gSTHXZJ/google-btn.png"
                     alt=""
@@ -65,7 +115,7 @@ const Login = () => {
                 </div>
                 <div className="">
                   <img
-                    
+                    onClick={handleGithubLogin}
                     className=" social-button cursor-pointer"
                     src="https://i.ibb.co/g9f4P0S/github-btn.png"
                     alt=""

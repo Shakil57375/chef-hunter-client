@@ -6,8 +6,8 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
   const { registerUser, goggleSignUp, githubSignUp } = useContext(AuthContext);
-  console.log(githubSignUp);
-  console.log(registerUser);
+  // console.log(githubSignUp);
+  // console.log(registerUser);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const handleSubmit = (event) => {
@@ -46,6 +46,18 @@ const Register = () => {
       console.log(error);
       setError(error.message);
     });
+  };
+  const handleGithubLogin = () => {
+    githubSignUp()
+    .then(result =>{
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      setSuccess("User Sign up successfully");
+    })
+    .catch(error =>{
+      console.log(error);
+      setError(error.message)
+    })
   };
   return (
     <div>
