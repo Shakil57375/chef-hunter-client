@@ -25,7 +25,7 @@ const Header = () => {
             </span>
           </div>
           <div
-            className={`links flex text-white absolute lg:static duration-500 lg:flex-row flex-col justify-center text-lg ${
+            className={`links flex text-black lg:text-white absolute lg:static duration-500 lg:flex-row flex-col justify-center text-lg ${
               open
                 ? "block left-16 top-16 -ml-16 z-20 lg:bg-inherit bg-red-100 w-full lg:text-black text-black shadow-2xl py-5 gap-2 pl-10"
                 : "hidden lg:block"
