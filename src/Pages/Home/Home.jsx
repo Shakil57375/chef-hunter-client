@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unescaped-entities */
@@ -5,6 +6,7 @@
 import React, { useEffect, useState } from "react";
 import chef_img from "../../../src/assets/images/recipe.png";
 import { Link } from "react-router-dom";
+import TopRecipes from "../TopRecipes/TopRecipes";
 const Home = () => {
   const [chefInfo, setChefInfo] = useState([]);
   useEffect(() => {
@@ -18,12 +20,12 @@ const Home = () => {
   return (
     <div className="my-container">
       {/* Banner section */}
-      <div className="my-container flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         <div className="w-full">
-          <h1 className="text-4xl font-bold leading-[3rem] text-blue-900 mb-3">
+          <h1 className="text-4xl font-bold leading-[3rem] text-black mb-3">
             Discover Delicious Recipes with Recipe hunter
           </h1>
-          <p className="text-2xl font-semibold leading-8 text-blue-800 mb-3">
+          <p className="text-2xl font-semibold leading-8 text-black mb-3">
             Bringing You a World of Flavors and Spices
           </p>
           <p className="leading-6 ">
@@ -42,25 +44,29 @@ const Home = () => {
         </div>
       </div>
       {/* Chef section */}
-      <h1 className="text-5xl font-bold text-center mb-10 text-blue-900">Our Chefs</h1>
+      <h1 className="text-5xl font-bold text-center my-20 text-black">
+        Our Chefs
+      </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {chefInfo &&
           chefInfo.map((chef) => (
             <div>
               <div className="card card-compact h-[600px] w-full bg-base-100 shadow-xl">
                 <figure>
-                  <img
-                    src={chef.image}
-                  />
+                  <img src={chef.image} />
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title text-2xl font-bold">{chef.name}</h2>
-                  <p className="text-xl font-semibold">Years of experience : {chef.years_of_experience}</p>
-                  <p className="text-lg">Number of Recipes : {chef.number_of_recipes}</p>
+                  <p className="text-xl font-semibold">
+                    Years of experience : {chef.years_of_experience}
+                  </p>
+                  <p className="text-lg">
+                    Number of Recipes : {chef.number_of_recipes}
+                  </p>
                   <p className="text-lg">Likes : {chef.likes}</p>
                   <div className="card-actions justify-center">
-                    <Link to={`/${chef.id}`}>
-                    <button className="btn btn-primary">View Recipes</button>
+                    <Link to={`/recipe/${chef.id}`}>
+                      <button className="btn btn-primary">View Recipes</button>
                     </Link>
                   </div>
                 </div>
@@ -68,7 +74,7 @@ const Home = () => {
             </div>
           ))}
       </div>
-      {/* Our top recipe section */}
+      <TopRecipes></TopRecipes>
     </div>
   );
 };
