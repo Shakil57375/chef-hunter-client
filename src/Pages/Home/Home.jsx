@@ -41,7 +41,79 @@ const Home = () => {
           </p>
         </div>
         <div className="w-full">
-          <img src={chef_img} alt="" />
+          {/* <img src={chef_img} alt="" /> */}
+          <div className="carousel w-full">
+            <div id="slide1" className="carousel-item relative w-full">
+              <img
+                src="https://assets.epicurious.com/photos/5900d6a4dd16ea535a7aed58/master/pass/Classic-Eggs-Benedict-26042017.jpg"
+                className="w-full rounded-2xl"
+              />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide4" className="btn btn-circle">
+                  ❮
+                </a>
+                <a href="#slide2" className="btn btn-circle">
+                  ❯
+                </a>
+              </div>
+            </div>
+            <div id="slide2" className="carousel-item relative w-full">
+              <img
+                src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg"
+                className="w-full rounded-2xl"
+              />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide1" className="btn btn-circle">
+                  ❮
+                </a>
+                <a href="#slide3" className="btn btn-circle">
+                  ❯
+                </a>
+              </div>
+            </div>
+            <div id="slide3" className="carousel-item relative w-full">
+              <img
+                src="https://www.foodandwine.com/thmb/97PY4E6Wk95IYv1_8pDZvBEi0Uw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cream-tomato-rigatoni-FT-RECIPE1020-139fb3fa52574e8bb06f98e7fa3e4f1e.jpg"
+                className="w-full rounded-2xl"
+              />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide2" className="btn btn-circle">
+                  ❮
+                </a>
+                <a href="#slide4" className="btn btn-circle">
+                  ❯
+                </a>
+              </div>
+            </div>
+            <div id="slide4" className="carousel-item relative w-full">
+              <img
+                src="https://kfoods.com/images1/newrecipeicon/chicken-crispy-burger_3700.jpg"
+                className="w-full rounded-2xl"
+              />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide3" className="btn btn-circle">
+                  ❮
+                </a>
+                <a href="#slide1" className="btn btn-circle">
+                  ❯
+                </a>
+              </div>
+            </div>
+            <div id="slide5" className="carousel-item relative w-full">
+              <img
+                src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2016_02/933116/breakfast_pizza_bianca.jpg"
+                className="w-full rounded-2xl"
+              />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide2" className="btn btn-circle">
+                  ❮
+                </a>
+                <a href="#slide4" className="btn btn-circle">
+                  ❯
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* Chef section */}
@@ -65,7 +137,7 @@ const Home = () => {
                     Number of Recipes : {chef.number_of_recipes}
                   </p>
                   <p className="text-lg">Likes : {chef.likes}</p>
-                  <div className="card-actions justify-center">
+                  <div className="card-actions justify-center pb-5">
                     <Link to={`/recipe/${chef.id}`}>
                       <button className="btn btn-primary">View Recipes</button>
                     </Link>
