@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import chef_img from "../../../src/assets/images/recipe.png";
 import { Link } from "react-router-dom";
 import TopRecipes from "../TopRecipes/TopRecipes";
+import Testimonial from "../Testimonial/Testimonial";
 const Home = () => {
   const [chefInfo, setChefInfo] = useState([]);
   useEffect(() => {
@@ -75,6 +76,7 @@ const Home = () => {
           ))}
       </div>
       <TopRecipes></TopRecipes>
+      <Testimonial></Testimonial>
     </div>
   );
 };
