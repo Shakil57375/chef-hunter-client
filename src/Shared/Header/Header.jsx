@@ -7,11 +7,11 @@ import ActiveLink from "../../ActiveLink/ActiveLink";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Header = () => {
   const {user, logOut} = useContext(AuthContext)
-  console.log(user);
+  // console.log(user);
   const handleLogOut = () =>{
     logOut()
     .then((result) =>{
-      console.log(result);
+      // console.log(result);
     })
     .catch((error)=>{
       console.log(error.message);

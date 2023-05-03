@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { registerUser, goggleRegister, githubRegister } = useContext(AuthContext);
+  const { registerUser, goggleRegister, githubRegister, updateUserData } = useContext(AuthContext);
   // console.log(githubSignUp);
   // console.log(registerUser);
   const [success, setSuccess] = useState("");
@@ -26,13 +26,27 @@ const Register = () => {
     if ((email, password)) {
       registerUser(email, password)
         .then((result) => {
-          console.log(result);
+          console.log(result.user);
           setSuccess("User successfully registered");
+          // updateUserData(result.user, name)
+          updateData(result.user, name, photo)
         })
         .catch((error) => {
           console.log(error.message);
           setError(error.message);
         });
+    }
+    const updateData = (user, name, photo) =>{
+      updateUserData(user,{
+        displayName : name,
+        photoURL : photo
+      })
+      .then(()=>{
+        console.log("updated");
+      })
+      .catch(error =>{
+        console.log(error.message);
+      })
     }
   };
   const handleGoogleLogin = () => {
