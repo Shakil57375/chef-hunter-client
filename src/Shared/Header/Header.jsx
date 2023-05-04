@@ -20,8 +20,8 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-blue-950">
-      <div className="text-2xl lg:text-3xl order-2 lg:order-1 font-bold cursor-pointer">
-        <Link to="/" className="sm:m-0 sm:p-0 text-white">
+      <div className="text-2xl lg:text-3xl font-serif order-2 lg:order-1 font-bold cursor-pointer">
+        <Link to="/" className="sm:m-0 sm:p-0 lg:text-2xl text-xl text-white">
             Recipe hunter
         </Link>
       </div>
@@ -43,9 +43,9 @@ const Header = () => {
                 : "hidden lg:block"
             } `}
           >
-            <ActiveLink to="/">Home</ActiveLink>
-            <ActiveLink to="/blogs">Blogs</ActiveLink>
-            <ActiveLink to="/register">Register</ActiveLink>
+            <ActiveLink className ="font-mono" to="/">Home</ActiveLink>
+            <ActiveLink className ="font-mono" to="/blogs">Blogs</ActiveLink>
+            <ActiveLink className ="font-mono" to="/register">Register</ActiveLink>
           </div>
         </div>
         <div>

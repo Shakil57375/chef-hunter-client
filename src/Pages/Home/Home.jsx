@@ -23,13 +23,13 @@ const Home = () => {
       {/* Banner section */}
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         <div className="w-full">
-          <h1 className="text-4xl font-bold leading-[3rem] text-black mb-3">
+          <h1 className="text-4xl font-serif font-bold leading-[3rem] text-black mb-3">
             Discover Delicious Recipes with Recipe hunter
           </h1>
           <p className="text-2xl font-semibold leading-8 text-black mb-3">
             Bringing You a World of Flavors and Spices
           </p>
-          <p className="leading-6 ">
+          <p className="leading-6 font-mono ">
             At Recipe hunter, we believe that cooking should be a fun and
             enjoyable experience that brings people together. That's why we
             encourage our community of food lovers to share their own recipes,
@@ -117,7 +117,7 @@ const Home = () => {
         </div>
       </div>
       {/* Chef section */}
-      <h1 className="text-5xl font-bold text-center my-20 text-black">
+      <h1 className="text-5xl font-serif  font-bold text-center my-20 text-black">
         Our Chefs
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">

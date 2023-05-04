@@ -33,10 +33,10 @@ const RecipeDetails = () => {
       {/* chef banner section */}
       <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
         <div className="w-full">
-          <h1 className="text-4xl font-bold leading-[3rem] text-black mb-3">
+          <h1 className="text-4xl font-serif font-bold leading-[3rem] text-black mb-3">
             {name}
           </h1>
-          <p className="leading-6 text-base text-gray-600">{bio}</p>
+          <p className="leading-6 text-base text-gray-600 font-mono">{bio}</p>
           <div className="flex lg:flex-row flex-col  justify-between items-center lg:items-start mt-5">
             <p className="text-xl font-bold text-gray-800">Likes : {likes}</p>
             <p className="text-xl font-bold text-gray-800">
@@ -56,7 +56,7 @@ const RecipeDetails = () => {
         </div>
       </div>
       <div className="lg:mt-20 mt-10">
-        <h2 className="text-5xl font-bold text-center my-10 lg:my-20 text-black ">
+        <h2 className="text-5xl font-serif font-bold text-center my-10 lg:my-20 text-black ">
           {name}'s Popular Recipes
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3  gap-5">
@@ -99,8 +99,11 @@ const RecipeDetails = () => {
                 </p>
               </div>
               <div className="mb-16">
-                <span className="text-xl font-semibold">Cooking Method : </span>{" "}
-                {allData?.recipes?.[0]?.first_recipe_cooking_method}
+                <span className="text-xl font-semibold font-sans">Cooking Method : </span>{" "}
+                <sans className="font-mono text-base text-gray-700">
+                                  {allData?.recipes?.[0]?.first_recipe_cooking_method}
+
+                </sans>
               </div>
               <div className="card-actions justify-center absolute bottom-10 left-36">
                 <button
@@ -152,8 +155,11 @@ const RecipeDetails = () => {
                 </p>
               </div>
               <div className="mb-16">
-                <span className="text-xl font-semibold">Cooking Method :</span>{" "}
-                {allData?.recipes?.[1]?.second_recipe_cooking_method}
+                <span className="text-xl font-semibold font-sans">Cooking Method :</span>{" "}
+                <sans className="font-mono text-base text-gray-700">
+                                  {allData?.recipes?.[1]?.second_recipe_cooking_method}
+
+                </sans>
               </div>
               <div className="card-actions justify-center absolute bottom-10 left-36">
                 <button
@@ -205,8 +211,11 @@ const RecipeDetails = () => {
                 </p>
               </div>
               <div className="mb-16">
-                <span className="text-xl font-semibold">Cooking Method : </span>{" "}
-                {allData?.recipes?.[2]?.third_recipe_cooking_method}
+                <span className="text-xl font-semibold font-sans">Cooking Method : </span>{" "}
+                <sans className="font-mono text-base text-gray-700">
+                                  {allData?.recipes?.[2]?.third_recipe_cooking_method}
+
+                </sans>
               </div>
               <div className="card-actions justify-center absolute bottom-10 left-36">
                 <button

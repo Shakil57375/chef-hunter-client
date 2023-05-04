@@ -24,7 +24,7 @@ const TopRecipes = () => {
   return (
     <div>
       {/* Our popular recipe section */}
-      <h1 className="text-5xl font-bold text-center my-20 text-black">
+      <h1 className="text-5xl font-serif font-bold text-center my-20 text-black">
         Our Top Retted Recipes
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -39,7 +39,7 @@ const TopRecipes = () => {
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">Sorshe Ilish</div>
             <p className="text-gray-700 text-base">
-            <p>
+            <p className= "font-mono text-gray-700">
             {isFold
                   ? Shorshe_Ilish_text.slice(0, 150) + "..."
                   : Shorshe_Ilish_text}
@@ -69,7 +69,7 @@ const TopRecipes = () => {
               Kacchi Biriyani
             </div>
             <p className="text-gray-700 text-base">
-              <p>
+              <p className= "font-mono text-gray-700">
                 {isExpend
                   ? Kacchi_Biriyani_text.slice(0, 150) + "..."
                   : Kacchi_Biriyani_text}
@@ -97,7 +97,7 @@ const TopRecipes = () => {
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">Kala Bhuna</div>
             <p className="text-gray-700 text-base">
-              <p>
+              <p className= "font-mono text-gray-700">
                 {isTruncated
                   ? kala_buna_text.slice(0, 150) + "..."
                   : kala_buna_text}
