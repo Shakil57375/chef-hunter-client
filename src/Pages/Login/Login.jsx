@@ -5,18 +5,18 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");  const navigate = useNavigate();
+  const [error, setError] = useState("");  
+  const navigate = useNavigate();
   const location = useLocation();
-  // console.log(location);
   const from = location.state?.from?.pathname || "/";
   const { loginUser, goggleRegister, githubRegister } = useContext(AuthContext);
   const handleSubmit = (event) => {
     setError("")
     setSuccess("")
     event.preventDefault();
-    const from = event.target;
-    const email = from.email.value;
-    const password = from.password.value;
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
     if (password.length < 6) {
       setError("Please add more then 6 character");
       return;
@@ -25,8 +25,8 @@ const Login = () => {
       loginUser(email, password)
         .then((result) => {
           console.log(result);
+          navigate(from, {replace : true});
           setSuccess("User successfully loggedIn");
-          navigate(from);
         })
         .catch((error) => {
           console.log(error.message);
@@ -40,7 +40,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("User Sign up successfully");
-        navigate(from);
+        navigate(from, {replace : true});
       })
       .catch((error) => {
         console.log(error);

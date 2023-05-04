@@ -1,12 +1,29 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeDetails = () => {
+  const [disabledFirst, setDisabledFirst] = useState(false);
+  const [disabledSecond, setDisabledSecond] = useState(false);
+  const [disabledThird, setDisabledThird] = useState(false);
+  const FirstButtonDisable = () => {
+    toast("added to the favorite!");
+    setDisabledFirst(true);
+  };
+  const SecondButtonDisable = () => {
+    toast("added to the favorite!");
+    setDisabledSecond(true);
+  };
+  const ThirdButtonDisable = () => {
+    toast("added to the favorite!");
+    setDisabledThird(true);
+  };
   const allData = useLoaderData();
-  console.log(allData?.recipes?.[0]?.first_recipe_rating);
+  // console.log(allData?.recipes?.[0]?.first_recipe_rating);
   const { name, image, bio, likes, number_of_recipes, years_of_experience } =
     allData;
   return (
@@ -77,7 +94,13 @@ const RecipeDetails = () => {
                 {allData?.recipes?.[0]?.first_recipe_cooking_method}
               </div>
               <div className="card-actions justify-center absolute bottom-10 left-36">
-                <button className="btn">Favorite</button>
+                <button
+                  onClick={FirstButtonDisable}
+                  disabled={disabledFirst}
+                  className="btn"
+                >
+                  Favorite
+                </button>
               </div>
             </div>
           </div>
@@ -117,7 +140,13 @@ const RecipeDetails = () => {
                 {allData?.recipes?.[1]?.second_recipe_cooking_method}
               </div>
               <div className="card-actions justify-center absolute bottom-10 left-36">
-                <button className="btn">Favorite</button>
+                <button
+                  onClick={SecondButtonDisable}
+                  disabled={disabledSecond}
+                  className="btn"
+                >
+                  Favorite
+                </button>
               </div>
             </div>
           </div>
@@ -157,12 +186,19 @@ const RecipeDetails = () => {
                 {allData?.recipes?.[2]?.third_recipe_cooking_method}
               </div>
               <div className="card-actions justify-center absolute bottom-10 left-36">
-                <button className="btn">Favorite</button>
+                <button
+                  onClick={ThirdButtonDisable}
+                  disabled={disabledThird}
+                  className="btn"
+                >
+                  Favorite
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

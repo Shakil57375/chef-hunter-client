@@ -1,24 +1,33 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { registerUser, goggleRegister, githubRegister, updateUserData } = useContext(AuthContext);
+  const {
+    registerUser,
+    goggleRegister,
+    githubRegister,
+    updateUserData,
+    logOut,
+  } = useContext(AuthContext);
   // console.log(githubSignUp);
   // console.log(registerUser);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleSubmit = (event) => {
     event.preventDefault();
     setError("");
     setSuccess("");
-    const from = event.target;
-    const name = from.name.value;
-    const email = from.email.value;
-    const photo = from.photo.value;
-    const password = from.password.value;
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
     if (password.length < 6) {
       setError("Please add more then 6 character");
       return;
@@ -29,49 +38,59 @@ const Register = () => {
           console.log(result.user);
           setSuccess("User successfully registered");
           // updateUserData(result.user, name)
-          updateData(result.user, name, photo)
+          updateData(result.user, name, photo);
+          logOut()
+            .then((result) => {
+              // console.log(result);
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+          navigate('/login');
         })
         .catch((error) => {
           console.log(error.message);
           setError(error.message);
         });
     }
-    const updateData = (user, name, photo) =>{
-      updateUserData(user,{
-        displayName : name,
-        photoURL : photo
+    const updateData = (user, name, photo) => {
+      updateUserData(user, {
+        displayName: name,
+        photoURL: photo,
       })
-      .then(()=>{
-        console.log("updated");
-      })
-      .catch(error =>{
-        console.log(error.message);
-      })
-    }
+        .then(() => {
+          console.log("updated");
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    };
   };
   const handleGoogleLogin = () => {
     goggleRegister()
-    .then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      setSuccess("User Sign up successfully");
-    })
-    .catch((error) => {
-      console.log(error);
-      setError(error.message);
-    });
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setSuccess("User Sign up successfully");
+        navigate(from);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
   };
   const handleGithubLogin = () => {
     githubRegister()
-    .then(result =>{
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      setSuccess("User Sign up successfully");
-    })
-    .catch(error =>{
-      console.log(error);
-      setError(error.message)
-    })
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        setSuccess("User Sign up successfully");
+        navigate(from);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
   };
   return (
     <div>
