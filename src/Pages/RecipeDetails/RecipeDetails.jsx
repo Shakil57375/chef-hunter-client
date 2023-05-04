@@ -159,7 +159,7 @@ const RecipeDetails = () => {
                 <button
                   onClick={SecondButtonDisable}
                   disabled={disabledSecond}
-                  className="btn"
+                  className="d-btn"
                 >
                   Favorite
                 </button>
@@ -212,7 +212,7 @@ const RecipeDetails = () => {
                 <button
                   onClick={ThirdButtonDisable}
                   disabled={disabledThird}
-                  className="btn"
+                  className="d-btn"
                 >
                   Favorite
                 </button>

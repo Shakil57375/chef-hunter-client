@@ -5,6 +5,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LazyLoad from 'react-lazy-load';
 import TopRecipes from "../TopRecipes/TopRecipes";
 import Testimonial from "../Testimonial/Testimonial";
 const Home = () => {
@@ -125,7 +126,9 @@ const Home = () => {
             <div>
               <div className="card card-compact h-[600px] w-full bg-base-100 shadow-xl">
                 <figure>
+                  <LazyLoad>
                   <img src={chef.image} />
+                  </LazyLoad>
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title text-2xl font-bold">{chef.name}</h2>
@@ -138,7 +141,7 @@ const Home = () => {
                   <p className="text-lg">Likes : {chef.likes}</p>
                   <div className="card-actions justify-center pb-5">
                     <Link to={`/recipe/${chef.id}`}>
-                      <button className="btn btn-primary">View Recipes</button>
+                      <button className="d-btn">View Recipes</button>
                     </Link>
                   </div>
                 </div>

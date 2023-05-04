@@ -45,7 +45,6 @@ const Header = () => {
           >
             <ActiveLink to="/">Home</ActiveLink>
             <ActiveLink to="/blogs">Blogs</ActiveLink>
-            <ActiveLink to="/login">Login</ActiveLink>
             <ActiveLink to="/register">Register</ActiveLink>
           </div>
         </div>
@@ -55,11 +54,11 @@ const Header = () => {
       </div>
       <div className="order-3 lg:order-3">
       {
-              user && 
+              user ? 
               <div className="flex gap-2 cursor-pointer">
-                <button className="text-white" onClick={handleLogOut}>Sign Out</button>
+                <button className="d-btn" onClick={handleLogOut}>Sign Out</button>
                 <span className='text-white mr-0 lg:mr-3 '> <img src={user.photoURL} title = {user.displayName ? user.displayName : " "} width={50} height={50} className="rounded-full" alt="" /></span>
-              </div>
+              </div> : <div className="cursor-pointer"><Link to='/login' ><button className="d-btn">Login</button></Link></div>
       }
       </div>
     </div>
