@@ -106,7 +106,7 @@ const RecipeDetails = () => {
                 <button
                   onClick={FirstButtonDisable}
                   disabled={disabledFirst}
-                  className="btn"
+                  className="d-btn"
                 >
                   Favorite
                 </button>
