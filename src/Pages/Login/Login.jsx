@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const [success, setSuccess] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState("");  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
+  const from = location.state?.from?.pathname || "/";
   const { loginUser, goggleRegister, githubRegister } = useContext(AuthContext);
   const handleSubmit = (event) => {
     setError("")
@@ -23,6 +26,7 @@ const Login = () => {
         .then((result) => {
           console.log(result);
           setSuccess("User successfully loggedIn");
+          navigate(from);
         })
         .catch((error) => {
           console.log(error.message);
@@ -36,6 +40,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("User Sign up successfully");
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -48,6 +53,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setSuccess("User Sign up successfully");
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);

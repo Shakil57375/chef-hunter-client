@@ -154,31 +154,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/* 
-import React from 'react';
-
-const Recipe = () => {
-  const ingredients = [
-    "500g boneless chicken breast, sliced",
-    "2 cups Thai basil leaves",
-    "4 cloves garlic, minced",
-    "2 red chili peppers, sliced",
-    "2 tablespoons soy sauce"
-  ];
-
-  return (
-    <div>
-      <h2>Ingredients:</h2>
-      <ul>
-        {ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default Recipe;
-
-*/

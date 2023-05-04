@@ -9,27 +9,34 @@ const goggleProvider = new GoogleAuthProvider()
 const githubProvider = new GithubAuthProvider()
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const [loader, setLoader] = useState(true)
     const registerUser = (email, password) =>{
+        setLoader(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const loginUser = (email, password) =>{
+        setLoader(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const goggleRegister = () =>{
+        setLoader(true)
         return signInWithPopup(auth, goggleProvider)
     }
     const githubRegister = () =>{
+        setLoader(true)
         return signInWithPopup(auth, githubProvider)
+    }
+    const updateUserData = (user, name) =>{
+        setLoader(true)
+        return updateProfile(user, name)
     }
     const logOut = () =>{
         return signOut(auth);
     }
-    const updateUserData = (user, name) =>{
-        return updateProfile(user, name)
-    }
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser =>{
             setUser(currentUser)
+            setLoader(false)
             // console.log(currentUser);
         })
         return () =>{
@@ -38,6 +45,7 @@ const AuthProvider = ({children}) => {
     },[])
     const authInfo = {
         user,
+        loader,
         registerUser,
         loginUser,
         goggleRegister,
