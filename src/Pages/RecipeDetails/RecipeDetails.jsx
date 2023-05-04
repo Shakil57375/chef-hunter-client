@@ -56,7 +56,7 @@ const RecipeDetails = () => {
         </div>
       </div>
       <div className="lg:mt-20 mt-10">
-        <h2 className="text-5xl font-serif font-bold text-center my-10 lg:my-20 text-black ">
+        <h2 className="text-3xl font-serif font-bold text-center my-10 lg:my-20 text-black ">
           {name}'s Popular Recipes
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3  gap-5">
