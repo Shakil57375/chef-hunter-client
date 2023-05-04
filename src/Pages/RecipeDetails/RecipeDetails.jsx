@@ -3,23 +3,25 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RecipeDetails = () => {
   const [disabledFirst, setDisabledFirst] = useState(false);
   const [disabledSecond, setDisabledSecond] = useState(false);
   const [disabledThird, setDisabledThird] = useState(false);
   const FirstButtonDisable = () => {
-    toast("added to the favorite!");
+    toast.success("added to the favorite!");
     setDisabledFirst(true);
   };
   const SecondButtonDisable = () => {
-    toast("added to the favorite!");
+    toast.success("added to the favorite!");
     setDisabledSecond(true);
   };
   const ThirdButtonDisable = () => {
-    toast("added to the favorite!");
+    toast.success("added to the favorite!");
     setDisabledThird(true);
   };
   const allData = useLoaderData();
@@ -86,7 +88,14 @@ const RecipeDetails = () => {
               </div>
               <div>
                 <p className="text-xl font-semibold">
-                  Rating : {allData?.recipes?.[0]?.first_recipe_rating}
+                  <div className="flex my-4 gap-2 items-center">
+                    Rating :
+                    <Rating
+                      style={{ maxWidth: 100 }}
+                      value={Math.round(allData?.recipes?.[0]?.first_recipe_rating || 0)}
+                      readOnly
+                    />
+                  </div>
                 </p>
               </div>
               <div className="mb-16">
@@ -132,7 +141,14 @@ const RecipeDetails = () => {
               </div>
               <div>
                 <p className="text-xl font-semibold">
-                  Rating : {allData?.recipes?.[1]?.second_recipe_rating}
+                  <div className="flex my-4 gap-2 items-center"> 
+                    Rating :
+                    <Rating
+                      style={{ maxWidth: 100 }}
+                      value={Math.round(allData?.recipes?.[1]?.second_recipe_rating || 0)}
+                      readOnly
+                    />
+                  </div>
                 </p>
               </div>
               <div className="mb-16">
@@ -178,7 +194,14 @@ const RecipeDetails = () => {
               </div>
               <div>
                 <p className="text-xl font-semibold">
-                  Rating : {allData?.recipes?.[2]?.third_recipe_rating}
+                  <div className="flex my-4 gap-2 items-center">
+                    Rating :
+                    <Rating
+                      style={{ maxWidth: 100 }}
+                      value={Math.round(allData?.recipes?.[2]?.third_recipe_rating || 0)}
+                      readOnly
+                    />
+                  </div>
                 </p>
               </div>
               <div className="mb-16">

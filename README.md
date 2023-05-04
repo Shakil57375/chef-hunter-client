@@ -1,0 +1,8 @@
+- My project name is recipe hunter. It is a food recipe website you can find your desire recipe in my website.
+- I have six section in my website header section, banner section, Our Chefs section, Our Top Retted Recipes, TESTIMONIAL section and at last a footer.
+    - header section that includes a logo in the left side and then some links home,blog,login, register
+    - banner section includes a banner which have a carousel and a text one side.
+    - Our Chefs includes all our top chefs that has the chef info then I have a button call view details if user click on the view details it will take him/her to the details page where I have the recipe section that includes a banner where I have the chef image a side and in the other side I have the information about chefs if a user click favorite button then it will show a toast then the button will disable automatically.
+    - After that I have the Our Top Retted Recipes which includes our top recipes.
+    - After that I have the footer section which includes a title and my websites pages links and then I have the social media links also after that I have copyright message
+- Link Site Link : https://assignment-ten-1b552.web.app/
