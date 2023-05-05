@@ -15,6 +15,9 @@ const Footer = () => {
         <a href="/blogs" className="text-black hover:text-white px-3 py-2">
           Blogs
         </a>
+        <a href="/about" className="text-black hover:text-white px-3 py-2">
+          About Us
+        </a>
         <a href="/login" className="text-black hover:text-white px-3 py-2">
           Login
         </a>
@@ -31,13 +34,13 @@ const Footer = () => {
         </p>
         <div className="flex justify-center items-center mt-4">
           <a href="#" className=" mr-4">
-            <FaFacebook className="text-black hover:text-white " />
+            <FaFacebook className="text-black hover:text-orange-800 " />
           </a>
           <a href="#" className="mr-4">
-            <FaTwitter className="text-black hover:text-white " />
+            <FaTwitter className="text-black hover:text-orange-800 " />
           </a>
           <a href="#" className="mr-4">
-            <FaInstagram className="text-black hover:text-white " />
+            <FaInstagram className="text-black hover:text-orange-800 " />
           </a>
         </div>
       </div>

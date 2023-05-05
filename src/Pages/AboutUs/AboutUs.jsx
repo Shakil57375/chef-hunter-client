@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import {FaHeadset, FaAngleRight, FaBullseye, FaCrosshairs} from "react-icons/fa";
 const AboutUs = () => {
   return (
     <div>
@@ -54,7 +54,10 @@ const AboutUs = () => {
           </div>
           <div className="lg:basis-1/2 gap-5  basis-full">
             <div className="bg-white shadow-lg hover:-translate-y-2 hover:-translate-x-2 rounded-lg overflow-hidden border-2 border-gray-300 hover:shadow-xl transform transition duration-300 p-6 ease-in-out mb-5 ">
-              <p className="text-3xl font-bold mb-3">Vision</p>
+            <div className="flex gap-4 items-center mb-4">
+                <FaBullseye className="w-8 h-8 text-orange-700"></FaBullseye>
+                <p className=" font-bold text-3xl mb-2 text-black  text-center">Vision</p>
+            </div>
               <p>
                 Our mission is to inspire and empower people to explore the
                 world of food by providing them with delicious recipes, expert
@@ -64,7 +67,10 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="bg-white shadow-lg hover:-translate-y-2 hover:-translate-x-2 rounded-lg overflow-hidden border-2 border-gray-300 hover:shadow-xl transform transition duration-300 p-6 ease-in-out ">
-              <p className="text-3xl font-bold mb-3">Mission</p>
+            <div className="flex gap-4 items-center mb-4">
+                <FaCrosshairs className="w-8 h-8 text-orange-700"></FaCrosshairs>
+                <p className=" font-bold text-3xl mb-2 text-black  text-center">Mission</p>
+            </div>
               <p>
                 Our vision is to be the leading digital platform for food
                 enthusiasts around the world. We want to create a community that
@@ -92,8 +98,9 @@ const AboutUs = () => {
         <div className="text-white lg:absolute static  transform">
           <div className="bg-white shadow-lg hover:-translate-y-2 hover:-translate-x-2 rounded-lg overflow-hidden border-2 border-gray-300 hover:shadow-xl transform transition duration-300 p-6 ease-in-out w-full lg:w-96  lg:ml-32 lg-0 ">
             <div className="px-6 py-4">
-              <div className=" font-bold text-2xl mb-2 text-gray-600  text-center">
-                Call Center
+              <div className="flex gap-4 items-center mb-4">
+                <FaHeadset className="w-12 h-12 text-orange-700"></FaHeadset>
+                <p className=" font-bold text-2xl mb-2 text-gray-600  text-center">Call Center</p>
               </div>
               <p className="text-gray-600 text-base mb-4 font-mono">
                 You can contact us in several ways. The easiest and quickest way
@@ -103,11 +110,11 @@ const AboutUs = () => {
                 with any queries you may have.
               </p>
               <div className="flex items-center gap-3 mb-2">
-                <ArrowRightIcon className="w-6 h-6 text-orange-700"></ArrowRightIcon>
+                <FaAngleRight className="w-6 h-6 text-orange-700"></FaAngleRight>
                 <p className="text-black"> Customer Service : 01736802159</p>
               </div>
               <div className="flex items-center gap-3">
-                <ArrowRightIcon className="w-6 h-6 text-orange-700"></ArrowRightIcon>
+                <FaAngleRight className="w-6 h-6 text-orange-700"></FaAngleRight>
                 <p className="text-black"> Advertise : 01857832578</p>
               </div>
             </div>

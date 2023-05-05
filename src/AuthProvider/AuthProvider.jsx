@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 const auth = getAuth(app)
 export const AuthContext = createContext(null)
@@ -21,6 +21,10 @@ const AuthProvider = ({children}) => {
     const goggleRegister = () =>{
         setLoader(true)
         return signInWithPopup(auth, goggleProvider)
+    }
+    const forgetPass = (email) =>{
+        setLoader(true)
+        return sendPasswordResetEmail(auth,email)
     }
     const githubRegister = () =>{
         setLoader(true)
@@ -51,7 +55,8 @@ const AuthProvider = ({children}) => {
         goggleRegister,
         githubRegister,
         logOut,
-        updateUserData
+        updateUserData,
+        forgetPass
     }
     return (
         <div>

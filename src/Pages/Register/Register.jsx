@@ -37,6 +37,7 @@ const Register = () => {
         .then((result) => {
           console.log(result.user);
           setSuccess("User successfully registered");
+          form.reset();
           // updateUserData(result.user, name)
           updateData(result.user, name, photo);
           logOut()

@@ -1,15 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");  
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   const location = useLocation();
+  const emailRef = useRef()
   const from = location.state?.from?.pathname || "/";
-  const { loginUser, goggleRegister, githubRegister } = useContext(AuthContext);
+  const { loginUser, goggleRegister, githubRegister, forgetPass } = useContext(AuthContext);
   const handleSubmit = (event) => {
     setError("")
     setSuccess("")
@@ -27,6 +31,7 @@ const Login = () => {
           console.log(result);
           navigate(from, {replace : true});
           setSuccess("User successfully loggedIn");
+          form.reset();
         })
         .catch((error) => {
           console.log(error.message);
@@ -60,6 +65,21 @@ const Login = () => {
         setError(error.message);
       });
   };
+  const handleResetPass = () => {
+    const email = emailRef.current.value;
+    if (!email) {
+      toast("Please provide your email address to reset password");
+      return;
+    }
+    forgetPass(email)
+      .then(() => {
+        toast("Please check your email");
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen lg:mt-24 mt-[4.2rem] bg-base-200">
@@ -77,6 +97,7 @@ const Login = () => {
                   type="email"
                   placeholder="email"
                   name="email"
+                  ref={emailRef}
                   className="input input-bordered"
                   required
                 />
@@ -86,13 +107,38 @@ const Login = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={show ? "text" : "password"}
                   placeholder="password"
                   className="input  input-bordered "
                   name="password"
                   required
                 />
+              <a href="#" className="label-text-alt link link-hover mt-3">
+                  Forget password?{" "}
+                  <Link onClick={handleResetPass} className="text-blue-600">
+                    Reset
+                  </Link>
+              </a>
+
+              <p
+                  className="absolute top-12 right-3"
+                  onClick={() => setShow(!show)}
+                >
+                  <small>
+                    {show ? (
+                      <span>
+                        <FaEyeSlash className="text-2xl" />
+                      </span>
+                    ) : (
+                      <span>
+                        <FaEye className="text-2xl" />
+                      </span>
+                    )}
+                  </small>
+                </p>
+
               </div>
+
               <p className="text-red-700">{error}</p>
               <p className="text-green-600">{success}</p>
               <div>
@@ -126,6 +172,7 @@ const Login = () => {
                     src="https://i.ibb.co/g9f4P0S/github-btn.png"
                     alt=""
                   />
+                  <ToastContainer></ToastContainer>
                 </div>
               </div>
             </form>
