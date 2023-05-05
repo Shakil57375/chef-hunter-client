@@ -45,7 +45,6 @@ const Header = () => {
           >
             <ActiveLink className ="font-mono" to="/">Home</ActiveLink>
             <ActiveLink className ="font-mono" to="/blogs">Blogs</ActiveLink>
-            <ActiveLink className ="font-mono" to="/register">Register</ActiveLink>
           </div>
         </div>
         <div>
