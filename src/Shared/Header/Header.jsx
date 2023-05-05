@@ -19,9 +19,9 @@ const Header = () => {
   }
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-blue-950">
+    <div className="flex justify-between w-full  items-center lg:px-28 px-4 lg:py-6 py-4 bg-white shadow-2xl">
       <div className="text-2xl lg:text-3xl font-serif order-2 lg:order-1 font-bold cursor-pointer">
-        <Link to="/" className="sm:m-0 sm:p-0 lg:text-2xl text-xl text-white">
+        <Link to="/" className="sm:m-0 sm:p-0 lg:text-2xl text-xl ">
             Recipe hunter
         </Link>
       </div>
@@ -30,14 +30,14 @@ const Header = () => {
           <div className="md:hidden" onClick={() => setOpen(!open)}>
             <span>
               {open === true ? (
-                <XMarkIcon className="h-6  w-6 text-white" />
+                <XMarkIcon className="h-6  w-6 text-black" />
               ) : (
-                <Bars3Icon className="h-6  w-6 text-white" />
+                <Bars3Icon className="h-6  w-6 text-black" />
               )}
             </span>
           </div>
           <div
-            className={`links flex text-black lg:text-white absolute lg:static duration-500 lg:flex-row flex-col justify-center text-lg ${
+            className={`links flex text-black  absolute lg:static duration-500 lg:flex-row flex-col justify-center text-lg ${
               open
                 ? "block left-16 top-16 -ml-16 z-20 lg:bg-inherit bg-red-100 w-full lg:text-black text-black shadow-2xl py-5 gap-2 pl-10"
                 : "hidden lg:block"
@@ -45,6 +45,7 @@ const Header = () => {
           >
             <ActiveLink className ="font-mono" to="/">Home</ActiveLink>
             <ActiveLink className ="font-mono" to="/blogs">Blogs</ActiveLink>
+            <ActiveLink className ="font-mono" to="/about">About Us</ActiveLink>
           </div>
         </div>
         <div>

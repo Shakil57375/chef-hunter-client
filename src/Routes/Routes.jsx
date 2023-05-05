@@ -7,6 +7,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import RecipeDetails from "../Pages/RecipeDetails/RecipeDetails";
 import PrivateRouter from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             path : '/recipe/:id',
             element : <PrivateRouter><RecipeDetails></RecipeDetails></PrivateRouter>,
             loader : ({params}) => fetch(`https://assignment-ten-server-shakil57375.vercel.app/chefs/${params.id}`)
+        },
+        {
+            path : '/about',
+            element : <AboutUs></AboutUs>
         }
     ]
   },

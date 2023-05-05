@@ -45,8 +45,8 @@ const Home = () => {
           <div className="carousel w-full">
             <div id="slide1" className="carousel-item relative w-full">
               <img
-                src="https://assets.epicurious.com/photos/5900d6a4dd16ea535a7aed58/master/pass/Classic-Eggs-Benedict-26042017.jpg"
-                className="w-full rounded-2xl"
+                src="https://images.unsplash.com/photo-1627662168806-efa33a7cda86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80"
+                className="w-full rounded-2xl h-auto"
               />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide4" className="btn btn-circle">
@@ -73,7 +73,7 @@ const Home = () => {
             </div>
             <div id="slide3" className="carousel-item relative w-full">
               <img
-                src="https://www.foodandwine.com/thmb/97PY4E6Wk95IYv1_8pDZvBEi0Uw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cream-tomato-rigatoni-FT-RECIPE1020-139fb3fa52574e8bb06f98e7fa3e4f1e.jpg"
+                src="https://images.unsplash.com/photo-1483737778139-63dff4421d43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                 className="w-full rounded-2xl"
               />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -87,7 +87,7 @@ const Home = () => {
             </div>
             <div id="slide4" className="carousel-item relative w-full">
               <img
-                src="https://kfoods.com/images1/newrecipeicon/chicken-crispy-burger_3700.jpg"
+                src="https://images.unsplash.com/photo-1492470026006-0e12a33eb7fb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                 className="w-full rounded-2xl"
               />
               <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -95,20 +95,6 @@ const Home = () => {
                   ❮
                 </a>
                 <a href="#slide1" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide5" className="carousel-item relative w-full">
-              <img
-                src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2016_02/933116/breakfast_pizza_bianca.jpg"
-                className="w-full rounded-2xl"
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide4" className="btn btn-circle">
                   ❯
                 </a>
               </div>

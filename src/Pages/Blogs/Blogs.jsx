@@ -23,7 +23,7 @@ const Blogs = () => {
   return (
     <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto divide-y-2 divide-gray-200">
-        <div className="flex items-center justify-between lg:flex-row flex-col">
+        <div className="flex items-center justify-between gap-4 lg:gap-0 lg:flex-row flex-col">
         <h2 className="text-3xl font-serif font-extrabold text-gray-900 sm:text-4xl font-serif">
           Frequently asked questions
         </h2>
